@@ -10,7 +10,7 @@ router.post('/test', function(req, res, next) {
       {
         "text":"Attachment"
       }
-    ]
+    ],
     "request": req
   }
   res.json(response);
