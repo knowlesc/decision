@@ -5,7 +5,7 @@ var router = express.Router();
 router.post('/test', function(req, res, next) {
 
   var response = {
-    "status": 400
+    "status": 400,
     "message": "Bad request"
   };
 
