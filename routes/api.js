@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
 router.post('/test', function(req, res, next) {
+  console.log(req)
   var response = {
     "response_type": "in_channel",
     "text": "Text",
@@ -11,6 +11,7 @@ router.post('/test', function(req, res, next) {
         "text":"Attachment"
       }
     ]
+    "request": req
   }
   res.json(response);
 });
