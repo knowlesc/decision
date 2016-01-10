@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/test', function(req, res, next) {
+router.post('/test', function(req, res, next) {
   var response = {
     "response_type": "in_channel",
     "text": "Text",
