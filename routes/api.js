@@ -3,16 +3,16 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/test', function(req, res, next) {
-    var response = {
+  var response = {
     "response_type": "in_channel",
     "text": "Text",
     "attachments": [
-        {
-            "text":"Attachment"
-        }
+      {
+        "text":"Attachment"
+      }
     ]
-}
-  res.json({test: "test"});
+  }
+  res.json(response);
 });
 
 module.exports = router;
