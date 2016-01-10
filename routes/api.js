@@ -3,23 +3,14 @@ var express = require('express');
 var router = express.Router();
 
 router.post('/test', function(req, res, next) {
-  console.log(process.env.slackTeamId)
-  console.log(typeof process.env.slackTeamId)
-  console.log(req.body.team_id)
-  console.log(typeof req.body.team_id)
-  console.log(process.env.slackToken)
-  console.log(typeof process.env.slackToken)
-  console.log(req.body.token)
-  console.log(typeof req.body.token)
 
   if (req._body) {
     var body = req.body;
-
-    if (body.team_id === process.env.slackToken) {
+    if (body.team_id === process.env.slackTeamId) {
       console.log("token good")
     } else { console.log("token bad") }
 
-    if (body.token === process.env.slackTeamId) {
+    if (body.token === process.env.slackToken) {
       console.log("team id good")
     } else { console.log("team id bad") }
 
