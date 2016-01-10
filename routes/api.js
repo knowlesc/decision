@@ -4,7 +4,9 @@ var router = express.Router();
 
 router.post('/test', function(req, res, next) {
   console.log(process.env.slackTeamId)
+  console.log(body.team_id)
   console.log(process.env.slackToken)
+  console.log(body.token)
 
   if (req._body) {
     var body = req.body;
