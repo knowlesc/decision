@@ -8,6 +8,15 @@ router.post('/test', function(req, res, next) {
 
   if (req._body) {
     var body = req.body;
+
+    if (body.team_id === process.env.slackToken) {
+      console.log("token good")
+    } else { console.log("token bad") }
+
+    if (body.token === process.env.slackTeamId) {
+      console.log("team id good")
+    } else { console.log("team id bad") }
+
     if (body.team_id === process.env.slackTeamId &&
         body.token === process.env.slackToken) {
       console.log(req.body)
