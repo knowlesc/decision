@@ -10,9 +10,10 @@ router.post('/test', function(req, res, next) {
   };
 
   if (req._body) {
-    var body = req.body;
-    if (body.team_id === process.env.slackTeamId &&
-        body.token === process.env.slackToken) {
+    var slackTeamId = req.body.team_id;
+    var slackToken = req.body.token;
+    if (slackTeamId && slackTeamId === process.env.slackTeamId &&
+        slackToken && slackToken === process.env.slackToken) {
       response = {
         "response_type": "in_channel",
         "text": "Custom Slack Command Test",
@@ -22,7 +23,7 @@ router.post('/test', function(req, res, next) {
       }
     }
   }
-
+  res.status(400);
   res.json(response);
 });
 
