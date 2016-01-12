@@ -2,21 +2,26 @@
   "name": "decision",
   "version": "0.0.0",
   "private": true,
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node server",
+    "test": "mocha"
   },
   "dependencies": {
-    "body-parser": "~1.13.2",
-    "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
-    "ejs": "~2.3.3",
     "express": "~4.13.1",
-    "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
     "assert": "^1.3.0",
+    "clean-webpack-plugin": "^0.1.6",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.2",
     "should": "^8.0.2",
-    "supertest": "^1.1.0"
+    "supertest": "^1.1.0",
+    "webpack": "^1.12.10",
+    "webpack-dev-server": "^1.14.0"
   }
 }

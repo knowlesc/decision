@@ -1,6 +1,5 @@
 var config = require('../config');
 var express = require('express');
-var sinon = require('sinon');
 var router = express.Router();
 
 router.post('/test', function(req, res, next) {

@@ -7,6 +7,7 @@ var app = require('../app.js');
 describe('API', function() {
 
   beforeEach(function() {
+    process.env.NODE_ENV = "test";
     process.env.slackTeamId = "team_id";
     process.env.slackToken = "token";
     config.slack_response_type = 'response';
