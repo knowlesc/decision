@@ -1,4 +1,3 @@
 node_modules
 *.log
-.sass-cache
-.sass-cache/*
+public/build
