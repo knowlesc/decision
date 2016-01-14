@@ -11,6 +11,7 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "serve-favicon": "~2.3.0",
+    "webpack": "^1.12.10",
     "body-parser": "^1.14.2"
   },
   "devDependencies": {
