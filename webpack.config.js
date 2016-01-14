@@ -15,6 +15,13 @@ module.exports = {
     publicPath: '/build/'
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "jshint-loader"
+      }
+    ],
     loaders: [
       { 
         test: /\.scss$/, 
