@@ -1,11 +1,18 @@
 var path = require('path');
 var port = process.env.PORT || 3000;
 var app = require('./app');
+var webpack = require('webpack');
 
 if (process.env.NODE_ENV === 'production') {
-
+  var child_process = require('child_process');
+  child_process.exec("webpack -p --config webpack.prod.config.js", function (error, stdout, stderr) {
+    console.log('stdout: ' + stdout);
+    console.log('stderr: ' + stderr);
+    if (error !== null) {
+      console.log('exec error: ' + error);
+    }
+  });
 } else {
-  var webpack = require('webpack');
   var webpackDevServer = require('webpack-dev-server');
   var webpackConfig = require('./webpack.config.js');
   var httpProxy = require('http-proxy');
@@ -35,7 +42,7 @@ if (process.env.NODE_ENV === 'production') {
     proxy.web(req, res, {
         target: 'http://localhost:8080'
     });
-      
+
     proxy.on('error', function(e) {
       console.log('Error: Could not connect to proxy.');
     });
