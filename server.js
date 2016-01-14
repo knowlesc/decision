@@ -1,6 +1,4 @@
-var httpProxy = require('http-proxy');
 var path = require('path');
-var proxy = httpProxy.createProxyServer();
 var port = process.env.PORT || 3000;
 var app = require('./app');
 
@@ -10,6 +8,8 @@ if (process.env.NODE_ENV === 'production') {
   var webpack = require('webpack');
   var webpackDevServer = require('webpack-dev-server');
   var webpackConfig = require('./webpack.config.js');
+  var httpProxy = require('http-proxy');
+  var proxy = httpProxy.createProxyServer();
 
   var compiler = webpack(webpackConfig);
   var bundler = new webpackDevServer(compiler, {
@@ -35,13 +35,15 @@ if (process.env.NODE_ENV === 'production') {
     proxy.web(req, res, {
         target: 'http://localhost:8080'
     });
+      
+    proxy.on('error', function(e) {
+      console.log('Error: Could not connect to proxy.');
+    });
   });
 
 }
 
-proxy.on('error', function(e) {
-  console.log('Error: Could not connect to proxy.');
-});
+
 
 app.listen(port, function () {
   console.log('Server running on port ' + port);
